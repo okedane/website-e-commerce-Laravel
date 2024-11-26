@@ -49,11 +49,11 @@
 
                             <div class="form-group">
                                 <label>Stock</label>
-                                <input type="stock"
+                                <input type="name"
                                     class="form-control @error('stock')
                                 is-invalid
                             @enderror"
-                                    name="name" value="{{ $produk->stock }}">
+                                    name="stock" value="{{ $produk->stock }}">
                                 @error('stock')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -63,11 +63,11 @@
 
                             <div class="form-group">
                                 <label>Price</label>
-                                <input type="price"
+                                <input type="name"
                                     class="form-control @error('price')
                                 is-invalid
                             @enderror"
-                                    name="name" value="{{ $produk->price }}">
+                                    name="price" value="{{ $produk->price }}">
                                 @error('price')
                                     <div class="invalid-feedback">
                                         {{ $message }}
