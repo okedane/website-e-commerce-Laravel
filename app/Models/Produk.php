@@ -13,7 +13,7 @@ class Produk extends Model
         'name',
         'stock',
         'price',
-        'description',
+        'decription',
         'kategori_id'
     ];
 

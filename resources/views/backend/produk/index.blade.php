@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
-@section('title', 'Category')
+@section('title', 'Wisata')
 
 @push('style')
     <!-- CSS Libraries -->
     <link rel="stylesheet" href="{{ asset('library/selectric/public/selectric.css') }}">
-    <link rel="stylesheet" href="{{ asset('library/prismjs/themes/prism.min.css') }}">
 @endpush
 
 @section('main')
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Category</h1>
+                <h1>{{ $kategori->title }}</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a>Category</a>
+                    <div class="breadcrumb-item active"><a href="">Dashboard</a>
                     </div>
+                    <div class="breadcrumb-item"><a href="{{ route('beCategory') }}">Category</a></div>
+                    <div class="breadcrumb-item"><a>Produk</a></div>
                 </div>
             </div>
             <div class="section-body">
@@ -30,7 +30,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="float-right">
-                                    <form method="GET" action="">
+                                    <form method="GET" action="{{ route('beProduk.index', $kategori->id) }}">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="search"
                                                 value="">
@@ -41,8 +41,8 @@
                                     </form>
                                 </div>
                                 <div class="section-header-button ">
-                                    <a href="{{ route('beCategori.create') }}" class=" btn btn-primary">Tambah
-                                        Category</a>
+                                    <a href="{{ Route('beProduk.create', $kategori->id) }}" class=" btn btn-primary">Tambah
+                                        Produk</a>
                                 </div>
                                 <div class="clearfix mb-3"></div>
 
@@ -50,32 +50,36 @@
                                     <table class="table-striped table">
                                         <tr>
                                             <th>No</th>
-                                            <th>Title</th>
+                                            <th>name</th>
+                                            <th>stock</th>
+                                            <th>price</th>
                                             <th>Description</th>
-                                            <th>Image</th>
-                                            <td>Aksi</td>
+                                            <th>Aksi</th>
                                         </tr>
-                                        @foreach ($kategories as $k)
+                                        @foreach ($produk as $d)
                                             <tr>
+
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $k->title }} </td>
-                                                <td>{{ $k->description }}</td>
-                                                <td> <img src="{{ Storage::url('uploads/category/' . $k->image) }}"
-                                                        alt="{{ $k->title }}" style="width: 100px; height: auto;">
-                                                </td>
+                                                <td>{{ $d->name }} </td>
+                                                <td>{{ $d->stock }} </td>
+                                                <td>{{ $d->price }} </td>
+                                                <td>{{ $d->decription }} </td>
                                                 <td>
                                                     <div class="d-flex justify-content">
-                                                    <a href="{{ route('beProduk.index', $k->id) }}"
+                                                        <a href=""
                                                             class="btn btn-success btn-icon mr-2">
-                                                            <i class="fas fa-eye"> Lihat Produk </i>
+                                                            <i class="fas fa-eye"> Image </i>
                                                         </a>
-                                                        <a href="{{ route('beCategory.edit', $k->id) }}"
+
+
+                                                        <a href="{{ Route('beProduk.edit', $d->id) }}"
                                                             class="btn  btn-info btn-icon">
                                                             <i class="fas fa-edit"> Edit</i>
                                                         </a>
-                                                        <form action="{{ route('beCategory.destroy', $k->id) }}"
+
+                                                        <form action="{{ Route('beProduk.destroy', $d->id) }}"
                                                             method="POST" class="ml-2"
-                                                            onsubmit="return confirm ('Apakah anda yakin  ?')">
+                                                            onsubmit="return confirm ('Apakah anda yakin ?')">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn  btn-danger btn-icon confirm-delete">
@@ -84,20 +88,20 @@
                                                         </form>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </table>
                                 </div>
-                                <div class="float-right">
-                                    {{-- {{ $kecamatan->withQueryString()->links() }} --}}
-                                </div>
+                                {{-- <div class="float-right">
+                                    {{ $desa->withQueryString()->links() }}
+                                </div> --}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </div>
 @endsection
 
@@ -107,9 +111,4 @@
 
     <!-- Page Specific JS File -->
     <script src="{{ asset('js/page/features-posts.js') }}"></script>
-    <!-- JS Libraies -->
-    <script src="{{ asset('library/prismjs/prism.js') }}"></script>
-
-    <!-- Page Specific JS File -->
-    <script src="{{ asset('js/page/bootstrap-modal.js') }}"></script>
 @endpush

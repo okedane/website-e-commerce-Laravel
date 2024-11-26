@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\KategoriController;
+use App\Http\Controllers\backend\ProdukController as BackendProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,12 @@ Route::get('/', function () {
  Route::put('/admin/kategori-update/{id}', [KategoriController::class, 'update'])->name('beCategory.update');
 
  Route::delete('/admin/kategori-Delete/{id}', [KategoriController::class, 'destroy'])->name('beCategory.destroy');
+
+
+ //be Produk
+ Route::get('/admin/produk/{id}', [BackendProdukController::class, 'index'])->name('beProduk.index');
+ Route::get('/admin/produk-create/{id}', [BackendProdukController::class, 'create'])->name('beProduk.create');
+ Route::post('/admin/produk-store', [BackendProdukController::class, 'store'])->name('beProduk.store');
+ Route::get('/admin/produk-edit/{id}', [BackendProdukController::class, 'edit'])->name('beProduk.edit');
+ Route::put('/admin/produk-update/{id}', [BackendProdukController::class, 'update'])->name('beProduk.update');
+ Route::delete('/admin/produk-Delete/{id}', [BackendProdukController::class, 'destroy'])->name('beProduk.destroy');
