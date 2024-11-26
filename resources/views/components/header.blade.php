@@ -6,7 +6,7 @@
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
                         class="fas fa-search"></i></a></li>
         </ul>
-        <h4 style="color: rgb(250, 250, 250);">Disbudporapar Sumenep</h4>
+        <h4 style="color: rgb(250, 250, 250);">LaptopHub</h4>
     </form>
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"

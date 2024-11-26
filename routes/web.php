@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\KategoriController;
 use App\Http\Controllers\backend\ProdukController as BackendProdukController;
+use App\Http\Controllers\backend\ImageController as BackendImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,11 @@ Route::get('/', function () {
  Route::get('/admin/produk-edit/{id}', [BackendProdukController::class, 'edit'])->name('beProduk.edit');
  Route::put('/admin/produk-update/{id}', [BackendProdukController::class, 'update'])->name('beProduk.update');
  Route::delete('/admin/produk-Delete/{id}', [BackendProdukController::class, 'destroy'])->name('beProduk.destroy');
+
+ Route::get('/admin/image/{id}', [BackendImageController::class, 'index'])->name('beImage.index');
+ Route::get('/admin/image-create/{id}', [BackendImageController::class, 'create'])->name('beImage.create');
+ Route::post('/admin/image-store', [BackendImageController::class, 'store'])->name('beImage.store');
+
+ Route::get('/admin/image-edit/{id}', [BackendImageController::class, 'edit'])->name('beImage.edit');
+ Route::put('/admin/image-update/{id}', [BackendImageController::class, 'update'])->name('beImage.update');
+ Route::delete('/admin/image-Delete/{id}', [BackendImageController::class, 'destroy'])->name('beImage.destroy');

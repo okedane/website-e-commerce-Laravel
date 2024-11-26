@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Wisata')
+@section('title', 'Edit Produk')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -76,12 +76,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label>description</label>
-                                <input type="text"
-                                    class="form-control @error('decription')
-                                is-invalid
-                            @enderror"
-                                    name="decription" value="{{ $produk->decription }}">
+                                <label for="decription">Deskripsi Panjang</label>
+                                <textarea id="decription" class="form-control @error('decription') is-invalid @enderror"
+                                    name="decription" rows="5" style="width: 100%; height: 50%">{{ old('decription', $produk->decription) }}</textarea>
                                 @error('decription')
                                     <div class="invalid-feedback">
                                         {{ $message }}

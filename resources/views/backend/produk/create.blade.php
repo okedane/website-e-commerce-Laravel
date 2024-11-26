@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Wisata')
+@section('title', 'Create Produk')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -16,10 +16,10 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Forms Tambah Wisata</h1>
+                <h1>Forms Tambah Produk</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href=""">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="{{ route('beProduk.index', $kategori->id) }}">wisata</a></div>
+                    <div class="breadcrumb-item"><a href="{{ route('beProduk.index', $kategori->id) }}">Produk</a></div>
                     <div class="breadcrumb-item"><a>create</a></div>
                 </div>
             </div>
@@ -74,8 +74,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Description</label>
-                                <textarea class="form-control @error('decription') is-invalid @enderror" name="decription" rows="5"></textarea>
+                                <label for="decription">Description</label>
+                                <textarea id="decription" class="form-control @error('decription') is-invalid @enderror"
+                                          name="decription" rows="5" style="width: 100%; height: 50%">{{ old('decription') }}</textarea>
                                 @error('decription')
                                     <div class="invalid-feedback">
                                         {{ $message }}

@@ -12,10 +12,10 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Dashboard - Wisata</h1>
+                <h1>Dashboard - Produk</h1>
             </div>
             <div class="section-body">
-                <img src="{{ asset('frontend/assets/images/aaaa.jpg') }}" alt="Tourist Destination" style="width: 100%;">
+                <img src="{{ asset('frontend/assets/images/R.jpg') }}" alt="Tourist Destination" style="width: 100%;">
             </div>
 
         </section>
