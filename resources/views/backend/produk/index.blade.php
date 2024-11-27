@@ -71,8 +71,6 @@
                                                             class="btn btn-success btn-icon mr-2">
                                                             <i class="fas fa-eye"> Image </i>
                                                         </a>
-
-
                                                         <a href="{{ Route('beProduk.edit', $d->id) }}"
                                                             class="btn  btn-info btn-icon">
                                                             <i class="fas fa-edit"> Edit</i>

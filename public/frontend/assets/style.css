@@ -38,3 +38,10 @@ body {
 .card-blog-single p {
     color: #555;
 }
+
+.image-container img {
+    width: 100%; /* Membuat gambar memenuhi kontainer */
+    height: 300px; /* Atur tinggi tetap */
+    object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+    border-radius: 8px; /* Opsional: tambahkan border-radius */
+}

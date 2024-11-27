@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\KategoriController;
 use App\Http\Controllers\backend\ProdukController as BackendProdukController;
 use App\Http\Controllers\backend\ImageController as BackendImageController;
-
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProdukController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,7 @@ use App\Http\Controllers\backend\ImageController as BackendImageController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('dashboard');
 });
 
@@ -47,3 +48,12 @@ Route::get('/', function () {
  Route::get('/admin/image-edit/{id}', [BackendImageController::class, 'edit'])->name('beImage.edit');
  Route::put('/admin/image-update/{id}', [BackendImageController::class, 'update'])->name('beImage.update');
  Route::delete('/admin/image-Delete/{id}', [BackendImageController::class, 'destroy'])->name('beImage.destroy');
+
+
+
+
+ Route::resource('/', HomeController::class);
+// FE
+Route::get('/kategori/{id}', [ProdukController::class, 'index'])->name('feProduk');
+
+Route::get('/kategori/show/{id}', [ProdukController::class, 'show'])->name('feShow');
