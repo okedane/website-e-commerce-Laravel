@@ -43,12 +43,27 @@
                         <!-- Konten -->
                         <div class="col-md-8">
                             <h3>{{ $produk->name }}</h3>
-                            <h4>Stok {{$produk->stock}}</h4>
-                            <td>{!! nl2br(e($produk->decription)) !!}</td>
-                            <a href="" class="btn btn-primary btn-block mt-4" style="width: 100%; font-size: 1.2rem;">
-                                Checkout <br> Rp.{{$produk->price}}
-                            </a>
+                            <h4>Stok: {{ $produk->stock }}</h4>
+                            <p>{!! nl2br(e($produk->decription)) !!}</p>
+
+                            <form action="{{ route('produk.checkout', $produk->id) }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="kategori_id" value="{{ $produk->kategori_id }}">
+                                <button type="submit" class="btn btn-primary btn-block mt-4" style="width: 100%; font-size: 1.2rem;">
+                                    Checkout <br> Rp.{{ number_format($produk->price, 0, ',', '.') }}
+                                </button>
+                            </form>
+
+                            {{-- <form action="{{ route('produk.checkout', $produk->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" class="btn btn-primary btn-block mt-4" style="width: 100%; font-size: 1.2rem;">
+                                    Checkout <br> Rp.{{ $produk->price }}
+                                </button>
+                            </form> --}}
+
+
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -23,4 +23,33 @@ class ProdukController extends Controller
         $image  = Image::where('produk_id', $id)->get();
         return view('frontend.produk.show', compact('produk', 'image'));
     }
+
+    public function checkout(Request $request, $id)
+    {
+        // Cari produk berdasarkan ID
+        $produk = Produk::findOrFail($id);
+
+        // Validasi kategori (pastikan produk memiliki kategori)
+        $kategoriId = $produk->kategori_id; // Asumsi ada relasi kategori_id di tabel produk
+
+        if ($kategoriId != $request->input('kategori_id')) {
+            return redirect()->back()->with('error', 'Produk tidak sesuai dengan kategori.');
+        }
+
+        // Validasi stok
+        if ($produk->stock <= 0) {
+            return redirect()->back()->with('error', 'Stok tidak mencukupi.');
+        }
+
+        // Kurangi stok
+        $produk->stock -= 1;
+        $produk->save();
+
+        // Redirect ke halaman kategori/show/{id}
+        return redirect()->route('feShow', ['id' => $produk->id])->with('success', 'Checkout berhasil, stok berkurang.');
+
+    }
+
+
+
 }

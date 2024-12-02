@@ -14,8 +14,8 @@ class Kategori extends Model
         'image'
     ];
 
-    public function travels()
+    public function produks()
     {
-        return $this->hasMany(Kategori::class);
+        return $this->belongsTo(produks::class);
     }
 }

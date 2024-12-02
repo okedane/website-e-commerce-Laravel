@@ -71,13 +71,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/admin/image-update/{id}', [BackendImageController::class, 'update'])->name('beImage.update')->middleware('userAkses:admin');
     Route::delete('/admin/image-Delete/{id}', [BackendImageController::class, 'destroy'])->name('beImage.destroy')->middleware('userAkses:admin');
 
-
+    
     // FE
     Route::get('/home', [HomeController::class, 'index'])->middleware('userAkses:customer')->name('customer.dashboard');;
     Route::get('/kategori/{id}', [ProdukController::class, 'index'])->name('feProduk')->middleware('userAkses:customer');
 
     Route::get('/kategori/show/{id}', [ProdukController::class, 'show'])->name('feShow')->middleware('userAkses:customer');
-
+    Route::post('/checkout/{id}', [ProdukController::class, 'checkout'])->name('produk.checkout')->middleware('userAkses:customer');
 });
 
 
