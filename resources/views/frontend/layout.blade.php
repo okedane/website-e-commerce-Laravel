@@ -35,9 +35,6 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container d-flex justify-content-center">
                 <ul class="navbar-nav d-flex" style="flex-direction: row;">
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Home</a>
-                    </li> --}}
                 </ul>
             </div>
         </nav>
