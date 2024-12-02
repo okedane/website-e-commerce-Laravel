@@ -7,7 +7,9 @@
             <div class="card-body text-white card-hero position-absolute text-center">
                 <h1 class="card-title card-title-hero">Laptop Hub</h1>
                 <p class="card-text">Where Innovation Meets Affordability.</p>
-                <a href="\login" class="btn btn-primary">admin</a>
+                <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
             </div>
         </div>
     </div>

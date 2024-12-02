@@ -85,14 +85,17 @@
                             </div>
 
                             <div class="form-group text-right">
-                                {{-- <a href={{ route('password.request') }} class="float-left mt-3">
-                                    Forgot Password?
-                                </a> --}}
+
                                 <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right"
                                     tabindex="4">
                                     Login
                                 </button>
                             </div>
+
+                            <div class="text-center mt-3">
+                                <p>Belum punya akun? <a href="{{ route('register') }}" class="btn btn-link">Daftar Sekarang</a></p>
+                            </div>
+
 
                         </form>
 
