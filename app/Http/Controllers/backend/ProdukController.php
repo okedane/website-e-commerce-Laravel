@@ -5,8 +5,10 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Kategori;
 use App\Models\Produk;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeUnit\FunctionUnit;
+
 
 class ProdukController extends Controller
 {

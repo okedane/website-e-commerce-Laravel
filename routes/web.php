@@ -9,6 +9,8 @@ use App\Http\Controllers\Frontend\ProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\TransactionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +72,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/image-edit/{id}', [BackendImageController::class, 'edit'])->name('beImage.edit')->middleware('userAkses:admin');
     Route::put('/admin/image-update/{id}', [BackendImageController::class, 'update'])->name('beImage.update')->middleware('userAkses:admin');
     Route::delete('/admin/image-Delete/{id}', [BackendImageController::class, 'destroy'])->name('beImage.destroy')->middleware('userAkses:admin');
+    Route::get('/admin/transactions', [TransactionController::class, 'index'])->name('admin.transactions')->middleware('userAkses:admin');
+
 
     
     // FE

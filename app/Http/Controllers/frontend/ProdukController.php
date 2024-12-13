@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Image;
 use App\Models\Kategori;
 use App\Models\Produk;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
@@ -44,6 +45,15 @@ class ProdukController extends Controller
         // Kurangi stok
         $produk->stock -= 1;
         $produk->save();
+
+        Transaction::create([
+            'user_id'     => auth()->id(), // ID user yang melakukan checkout
+            'produk_id'   => $produk->id,  // ID produk yang dibeli
+            'quantity'    => 1,           // Jumlah produk yang dibeli (1 per checkout)
+            'total_price' => $produk->price, // Total harga
+        ]);
+
+
 
         // Redirect ke halaman kategori/show/{id}
         return redirect()->route('feShow', ['id' => $produk->id])->with('success', 'Checkout berhasil, stok berkurang.');

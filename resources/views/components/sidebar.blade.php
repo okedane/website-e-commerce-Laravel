@@ -14,12 +14,15 @@
                     <li>
                         <a class="nav-link" href="">Dashboard</a>
                     </li>
-
                     <li>
                         <a class="nav-link" href="{{ route('beCategory') }}">Category</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.transactions') }}">Laporan Penjualan</a>
+                    </li>
                 </ul>
             </li>
+            
         </ul>
     </aside>
 </div>
